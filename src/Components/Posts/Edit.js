@@ -3,13 +3,21 @@ import Auth from "../../Crud/auth";
 import Navbar from "../Headers/Navbar"
 export default class Edit extends Component   {
     constructor(props){
+
         super(props);
         let _id = document.URL.split('/')[4];
         this.state = {
             _id:_id,
             post:{},
             form:{},
+
         };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    componentDidMount() {
+
         const urlPosts = Auth.AuthObj.BASE_URL + 'appdata/' + Auth.AuthObj.APP_KEY + '/posts/'+this.state._id;
         let authToken = Auth.AuthObj.GUEST_TOKEN;
         if(sessionStorage.getItem('authToken')) {
@@ -21,13 +29,11 @@ export default class Edit extends Component   {
                 headers: headers,
             })
             .then(data=>data.json()).then(res=>{
-           // console.log(res);
+            // console.log(res);
             this.setState({post:res})
         }).catch(err=>console.log(err));
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleChange(e){
         const name = e.target.dataset.name;
         const value  = e.target.value;

@@ -8,27 +8,30 @@ export default class Details extends Component
         let authToken = sessionStorage.getItem("authToken");
         super(props);
         let _id = document.URL.split('/')[4];
-this.state = {
-_id:_id,
+    this.state = {
+    _id:_id,
     post:{},
     authToken:authToken
 
 };
         this.Delete=this.Delete.bind(this);
+
+
+    }
+    componentDidMount() {
+
         const urlPosts = Auth.AuthObj.BASE_URL + 'appdata/' + Auth.AuthObj.APP_KEY + '/posts/'+this.state._id;
-
-
-        const headers =    {'Authorization': 'Kinvey ' + authToken};
+        const headers =    {'Authorization': 'Kinvey ' + this.state.authToken};
         fetch( urlPosts,
             {   method:'GET',
                 headers: headers,
             })
             .then(data=>data.json()).then(res=>{
-         //  console.log(res);
+            //  console.log(res);
             this.setState({post:res})
         }).catch(err=>console.log(err));
-
     }
+
     Delete(){
         const urlPosts = Auth.AuthObj.BASE_URL + 'appdata/' + Auth.AuthObj.APP_KEY + '/posts/'+this.state._id;
         const headers =    {'Authorization': 'Kinvey ' + sessionStorage.getItem('authToken')};

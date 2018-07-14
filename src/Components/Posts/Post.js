@@ -62,16 +62,16 @@ render (){
         }
         return (
             <div className="card" style={style} id = {this.state.id}>
-    <img className="card-img-top" src={this.state.imgUrl} alt =""/>
-            <div className="card-body">
-            <h5 className="card-title">{this.state.title}</h5>
-                <p className="card-title">{this.state.context}</p>
-                <Link to = {"/details/"+this.state.id}>
-                <p className="btn btn-primary" >Details</p>
-                </Link>
-                {buttonAddFav}
-    </div>
-    </div>
+                 <img className="card-img-top" src={this.state.imgUrl} alt =""/>
+                <div className="card-body">
+                    <h5 className="card-title">{this.state.title}</h5>
+                    <p className="card-title">{this.state.context}</p>
+                    <Link to = {"/details/"+this.state.id}>
+                    <p className="btn btn-primary" >Details</p>
+                     </Link>
+                    {buttonAddFav}
+                    </div>
+            </div>
         );
 
     }

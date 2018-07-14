@@ -7,29 +7,32 @@ import Toast from '../Toasts/Toast'
 export default class AllPost extends Component {
 constructor(props) {
 super(props);
-    let authToken =Auth.AuthObj.GUEST_TOKEN;
-if(sessionStorage.getItem('authToken')) {
-    authToken = sessionStorage.getItem('authToken');
-}else (sessionStorage.setItem('authToken',authToken));
 
+    let authToken =Auth.AuthObj.GUEST_TOKEN;
+    if(sessionStorage.getItem('authToken')) {
+        authToken = sessionStorage.getItem('authToken');
+    }else (sessionStorage.setItem('authToken',authToken));
 
     this.state = {
         posts :[],
         authToken:authToken,
     };
-const urlPosts = Auth.AuthObj.BASE_URL + 'appdata/' + Auth.AuthObj.APP_KEY + '/posts';
-
-
-const headers =    {'Authorization': 'Kinvey ' + authToken};
-    fetch( urlPosts,
-        {   method:'GET',
-            headers: headers,
-        })
-        .then(data=>data.json()).then(res=>{
-      //  console.log(res);
-        this.setState({posts:res})
-    }).catch(err=>console.log(err));
 }
+    componentDidMount(){
+        const urlPosts = Auth.AuthObj.BASE_URL + 'appdata/' + Auth.AuthObj.APP_KEY + '/posts';
+
+        const headers =    {'Authorization': 'Kinvey ' + this.state.authToken};
+        fetch( urlPosts,
+            {   method:'GET',
+                headers: headers,
+            })
+            .then(data=>data.json()).then(res=>{
+            //  console.log(res);
+            this.setState({posts:res})
+        }).catch(err=>console.log(err));
+
+    }
+
     render() {
        let  queries = [{
            columns: 1,
@@ -49,8 +52,8 @@ const headers =    {'Authorization': 'Kinvey ' + authToken};
         if(Posts===undefined)Posts=[];
         return (
                 <div className="container">
-                <Navbar/>
-                    <Toast/>
+               <Navbar/>
+                    <Toast />
                 <Columns queries={queries}>
                 {
                     Posts.map((post,index)=> {

@@ -3,10 +3,12 @@ import {ToastContainer, ToastStore} from 'react-toasts';
 
 
 export default class Position extends Component {
-            render(){
+    render(){
             return(
-                    <ToastContainer store={ToastStore}/>
-            );
+                <ToastContainer store={ToastStore}/>
+
+
+                    );
         }
 
 }
