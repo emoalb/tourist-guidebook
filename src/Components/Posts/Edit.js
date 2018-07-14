@@ -21,7 +21,7 @@ export default class Edit extends Component   {
                 headers: headers,
             })
             .then(data=>data.json()).then(res=>{
-            console.log(res);
+           // console.log(res);
             this.setState({post:res})
         }).catch(err=>console.log(err));
 

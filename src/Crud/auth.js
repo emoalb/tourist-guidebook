@@ -85,7 +85,7 @@ const signInUser = (res) =>{
      sessionStorage.setItem('username', res.username);
      sessionStorage.setItem('authToken', res._kmd.authtoken);
      sessionStorage.setItem('userId', res._id);
-   console.log(res._kmd.authtoken);
+  // console.log(res._kmd.authtoken);
  };
 
 const showHome = (props)=>{

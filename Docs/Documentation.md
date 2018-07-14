@@ -49,7 +49,6 @@ cd tourist-guidebook/
 npm install
 ```
 
-And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
 
 ### Building
 
@@ -75,4 +74,5 @@ Not using any versioning standard.
 This App is using Kinvey databse
 ## Licensing
 
-State what the license is and how to find the text version of the license.
+MIT License 
+See LICENSE file for more info

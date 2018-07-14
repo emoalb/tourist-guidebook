@@ -40,8 +40,6 @@ export default class LoginForm extends Component   {
                     <label htmlFor="input-email">User name</label>
                     <input data-name="name" type="username" onChange={this.handleChange} className="form-control" id="exampleInputUsername" aria-describedby="usernameHelp"
                            placeholder="Enter user name"/>
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.
-                    </small>
                 </div>
                 <div className="form-group">
                     <label  htmlFor="input-password">Password</label>

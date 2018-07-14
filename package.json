@@ -18,8 +18,8 @@
     "eject": "react-scripts eject"
   },
   "license": "MIT",
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/emoalb/tourist-guidebook"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emoalb/tourist-guidebook"
   }
 }
