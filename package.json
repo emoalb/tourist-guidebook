@@ -17,5 +17,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/emoalb/tourist-guidebook"
+  }
 }
